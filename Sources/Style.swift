@@ -23,9 +23,9 @@ public struct Style {
     
     public let name: String
     
-    public let attributes: [String: Any]
+    public let attributes: [NSAttributedStringKey: Any]
     
-    public init(_ name: String = "", _ attributes: [String: Any] = [:]) {
+    public init(_ name: String = "", _ attributes: [NSAttributedStringKey: Any] = [:]) {
         self.name = name
         self.attributes = attributes
     }
@@ -125,90 +125,94 @@ public struct Style {
     }
     
     public static func font(_ value: Font) -> Style {
-        return Style("", [NSFontAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue): value])
     }
     
     public static func paragraphStyle(_ value: NSParagraphStyle) -> Style {
-        return Style("", [NSParagraphStyleAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.paragraphStyle.rawValue): value])
     }
     
     public static func foregroundColor(_ value: Color) -> Style {
-        return Style("", [NSForegroundColorAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): value])
     }
     
     public static func backgroundColor(_ value: Color) -> Style {
-        return Style("", [NSBackgroundColorAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.backgroundColor.rawValue): value])
     }
     
     public static func ligature(_ value: Int) -> Style {
-        return Style("", [NSLigatureAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.ligature.rawValue): value])
     }
     
     public static func kern(_ value: Float) -> Style {
-        return Style("", [NSKernAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.kern.rawValue): value])
     }
     
     public static func strikethroughStyle(_ value: NSUnderlineStyle) -> Style {
-        return Style("", [NSStrikethroughStyleAttributeName : value.rawValue])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.strikethroughStyle.rawValue) : value.rawValue])
     }
     
     public static func strikethroughColor(_ value: Color) -> Style {
-        return Style("", [NSStrikethroughColorAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.strikethroughColor.rawValue): value])
     }
     
     public static func underlineStyle(_ value: NSUnderlineStyle) -> Style {
-        return Style("", [NSUnderlineStyleAttributeName : value.rawValue])
+//        return Style("", [NSAttributedStringKey.underlineStyleNSAttributedStringKey.underlineStyle.rawValue : value.rawValue])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.underlineStyle.rawValue) : value.rawValue])
+
     }
     
     public static func underlineColor(_ value: Color) -> Style {
-        return Style("", [NSUnderlineColorAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.underlineColor.rawValue): value])
     }
     
     public static func strokeColor(_ value: Color) -> Style {
-        return Style("", [NSStrokeColorAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.strokeColor.rawValue): value])
     }
     
     public static func strokeWidth(_ value: Float) -> Style {
-        return Style("", [NSStrokeWidthAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.strokeWidth.rawValue): value])
     }
     
     #if !os(watchOS)
     public static func shadow(_ value: NSShadow) -> Style {
-        return Style("", [NSShadowAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.shadow.rawValue): value])
     }
     #endif
     
     public static func textEffect(_ value: String) -> Style {
-        return Style("", [NSTextEffectAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.textEffect.rawValue): value])
     }
     
     #if !os(watchOS)
     public static func attachment(_ value: NSTextAttachment) -> Style {
-        return Style("", [NSAttachmentAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.attachment.rawValue): value])
     }
     #endif
     
     public static func link(_ value: URL) -> Style {
-        return Style("", [NSLinkAttributeName: value])
+//        return Style("", [NSAttributedStringKey.linkNSAttributedStringKey.link.rawValue: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.link.rawValue): value])
+
     }
     
     public static func link(_ value: String) -> Style {
-        return Style("", [NSLinkAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.link.rawValue): value])
     }
     
     public static func baselineOffset(_ value: Float) -> Style {
-        return Style("", [NSBaselineOffsetAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.baselineOffset.rawValue): value])
     }
     
     public static func obliqueness(_ value: Float) -> Style {
-        return Style("", [NSObliquenessAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.obliqueness.rawValue): value])
     }
     
     public static func expansion(_ value: Float) -> Style {
-        return Style("", [NSExpansionAttributeName: value])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.expansion.rawValue): value])
     }
     
     public static func writingDirection(_ value: NSWritingDirection) -> Style {
-        return Style("", [NSWritingDirectionAttributeName: value.rawValue])
+        return Style("", [NSAttributedStringKey(rawValue: NSAttributedStringKey.writingDirection.rawValue): value.rawValue])
     }
 }

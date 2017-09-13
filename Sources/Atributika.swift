@@ -48,11 +48,13 @@ public protocol AtributikaProtocol {
 extension AtributikaProtocol {
     
     public var attributedString: NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: string, attributes: baseStyle.attributes)
+        let attributedString = NSMutableAttributedString(string: string, attributes: baseStyle.attributes as [NSAttributedStringKey : Any])
+//        let attributedString = NSMutableAttributedString(string: String, attributes: baseStyle)
+        
         
         for d in detections {
             if d.style.attributes.count > 0 {
-                attributedString.addAttributes(d.style.attributes, range: NSRange(d.range))
+                attributedString.addAttributes(d.style.attributes as [NSAttributedStringKey : Any], range: NSRange(d.range))
             }
         }
         
@@ -155,7 +157,7 @@ extension NSAttributedString: AtributikaProtocol {
         
         enumerateAttributes(in: NSMakeRange(0, length), options: []) { (attributes, range, _) in
             if let range = range.toRange() {
-                ds.append(Detection(type: .none, style: Style("", attributes), range: range))
+                ds.append(Detection(type: .none, style: Style("", attributes as [NSAttributedStringKey : Any]), range: range))
             }
         }
         
